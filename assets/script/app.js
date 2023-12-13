@@ -14,30 +14,33 @@ const mapStructure = document.getElementById('map');
 
 let fadeElements = document.querySelectorAll('.scrollFade');
 
+// Declare the map variable outside the function
+let map;
+
 function scrollFade() {
-	let viewportBottom = window.scrollY + window.innerHeight;
+    let viewportBottom = window.scrollY + window.innerHeight;
 
-	for (let i = 0; i < fadeElements.length; i++) {
-		let fadeElement = fadeElements[i];
-		let rect = fadeElement.getBoundingClientRect();
+    for (let i = 0; i < fadeElements.length; i++) {
+        let fadeElement = fadeElements[i];
+        let rect = fadeElement.getBoundingClientRect();
 
-		let elementFourth = rect.height/4;
-		let fadeIn = window.innerHeight - elementFourth;
-		let fadeOut = -(rect.height/2);
+        let elementFourth = rect.height / 4;
+        let fadeIn = window.innerHeight - elementFourth;
+        let fadeOut = -(rect.height / 2);
 
-		if (rect.top <= fadeIn) {
-			fadeElement.classList.add('is-visible');
-			fadeElement.classList.remove('scrollFade-hidden');
-		} else {
-			fadeElement.classList.remove('is-visible');
-			fadeElement.classList.add('scrollFade-hidden');
-		}
+        if (rect.top <= fadeIn) {
+            fadeElement.classList.add('is-visible');
+            fadeElement.classList.remove('scrollFade-hidden');
+        } else {
+            fadeElement.classList.remove('is-visible');
+            fadeElement.classList.add('scrollFade-hidden');
+        }
 
-		if (rect.top <= fadeOut) {
-			fadeElement.classList.remove('is-visible');
-			fadeElement.classList.add('scrollFade-hidden');
-		}
-	}
+        if (rect.top <= fadeOut) {
+            fadeElement.classList.remove('is-visible');
+            fadeElement.classList.add('scrollFade-hidden');
+        }
+    }
 }
 
 document.addEventListener('scroll', scrollFade);
@@ -50,37 +53,37 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGhlbG1hLWRldiIsImEiOiJjbGJncnJqc2wwaXhjM29xd
 
 function getLocation(position) {
     const { latitude, longitude } = position.coords;
-    setUpMap([longitude,latitude]);
+    setUpMap([longitude, latitude]);
 }
 
 function errorHandler() {
-    setUpMap([-97.19318,49.81453])
+    setUpMap([-97.19318, 49.81453]);
 }
 
 const options = {
     enableHighAccuracy: true
-}
+};
 
 const geojson = {
     type: 'FeatureCollection',
     features: [
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [-97.19318,49.81453]
+        {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [-97.19318, 49.81453]
+            },
+            properties: {
+                title: 'Location',
+                description: 'MITT Henlow Campus'
+            }
         },
-        properties: {
-          title: 'Location',
-          description: 'MITT Henlow Campus'
-        }
-      },
     ]
 };
 
-
+// Modify the function to assign the map to the global variable
 function setUpMap(center) {
-    const map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
@@ -95,8 +98,8 @@ function setUpMap(center) {
 
         const marker = new mapboxgl.Marker({
             color: '#3898ff'
-        })
-         
+        });
+
         new mapboxgl.Marker(marker)
             .setLngLat(feature.geometry.coordinates)
             .setPopup(
@@ -104,8 +107,8 @@ function setUpMap(center) {
                     .setHTML(
                         `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
                     )
-                )
-        .addTo(map);
+            )
+            .addTo(map);
     }
 
     map.dragPan.disable();
@@ -113,13 +116,14 @@ function setUpMap(center) {
     map.doubleClickZoom.disable();
 }
 
+// Call setUpMap at the beginning
+setUpMap([-97.19318, 49.81453]);
 
 // Event listeners
-
-onEvent('click', track, () => { 
+onEvent('click', track, () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getLocation, errorHandler, options);
     } else {
-        console.log('Geolocation is not supported by your browser');
+        console.log('Track your Device');
     }
-})
+});
