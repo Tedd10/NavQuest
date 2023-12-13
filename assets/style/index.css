@@ -1,12 +1,13 @@
 @import './reset.css';
 
 :root {
-    --app-dark-bg:#1a1d28;
-    --app-blue:#3c57ff;
-    --app-blue-hover:#233ff8;
+    --app-dark-bg: #1a1d28;
+    --app-blue: #3c57ff;
+    --app-blue-hover: #233ff8;
     --app-light-bg: #f0f4f6;
     --app-border-radius: 6px;
-    --text-color: rgb(0, 0, 0, 0.8);;
+    --text-color: rgb(0, 0, 0, 0.8);
+    ;
 }
 
 html {
@@ -39,16 +40,16 @@ header {
     background-color: var(--app-light-bg);
     padding: 10px 0px;
 }
-  
+
 .flexbox {
     display: flex;
 }
-  
+
 .title {
     width: 40%;
     height: 36px;
 }
-  
+
 .title h1 a {
     font-size: 25px;
     font-weight: 600;
@@ -58,22 +59,22 @@ header {
     text-decoration: none;
     letter-spacing: 0.3px;
 }
-  
+
 nav {
     width: 60%;
     text-align: right;
 }
-  
+
 nav ul {
     list-style: none;
 }
-  
+
 nav ul li {
     display: inline;
     line-height: 56px;
     cursor: default;
 }
-  
+
 nav ul li a {
     font-size: 16px;
     color: #000;
@@ -82,13 +83,13 @@ nav ul li a {
     letter-spacing: 0.2px;
     cursor: pointer;
 }
-  
+
 nav ul li a:hover {
     text-decoration: underline;
 }
-  
-  
-nav ul li + li {
+
+
+nav ul li+li {
     margin-left: 20px;
 }
 
@@ -98,7 +99,7 @@ nav ul li + li {
     text-align: right;
     margin: 0 15px;
 }
-  
+
 .login a {
     font-size: 16px;
     font-weight: 400;
@@ -112,7 +113,7 @@ nav ul li + li {
     background-color: var(--app-blue);
     border-radius: var(--app-border-radius);
 }
-  
+
 .login a:hover {
     background-color: var(--app-blue-hover);
     color: #fff;
@@ -122,7 +123,7 @@ nav ul li + li {
 
 .hamburger-menu {
     display: none;
-    
+
 }
 
 
@@ -133,23 +134,23 @@ nav ul li + li {
 section {
     width: 100%
 }
-  
+
 .banner {
     background: var(--app-light-bg);
     height: 90vh;
     position: relative;
 }
-  
+
 .banner-text {
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate( -50%, -50%);
+    transform: translate(-50%, -50%);
     color: rgb(0, 0, 0, 0.8);
     margin: 10px auto;
 }
-  
+
 .banner-text h2 {
     font-size: 5.5rem;
     font-weight: 800;
@@ -161,13 +162,14 @@ section {
     font-weight: 900;
     font-size: 6.5rem;
 }
-  
+
 .banner-text p {
     font-size: 30px;
     font-weight: 400;
 }
 
-.banner-text a, .track {
+.banner-text a,
+.track {
     width: 180px;
     height: 50px;
     border: none;
@@ -189,8 +191,9 @@ section {
 .track {
     width: 120px;
 }
-  
-.banner-text a:hover, .track:hover {
+
+.banner-text a:hover,
+.track:hover {
     background-color: var(--app-blue-hover);
     color: #fff;
 }
@@ -208,8 +211,8 @@ section .section-heading {
     text-align: center;
     margin-top: 30px;
 }
-  
-  
+
+
 section .section-heading h3 {
     text-align: center;
     font-size: 60px;
@@ -226,7 +229,7 @@ section .section-heading p {
     width: 480px;
     margin-inline: auto;
 }
-  
+
 /* -------------------------------- */
 /* Section-pictures                 */
 /* -------------------------------- */
@@ -259,7 +262,8 @@ img {
     border-radius: 10px;
 }
 
-.two, .four {
+.two,
+.four {
     margin-top: 40px;
 }
 
@@ -284,7 +288,7 @@ img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate( -50%, -50%);
+    transform: translate(-50%, -50%);
     color: #fff;
     margin: 0px auto;
     font-size: 63px;
@@ -313,6 +317,10 @@ img {
     width: 200px;
     height: 150px;
     margin-inline: auto;
+}
+
+.partner img {
+    border-radius: 50%;
 }
 
 /* -------------------------------- */
@@ -389,12 +397,12 @@ footer {
     padding: 10px;
     border: none;
 }
-  
+
 .social-icons ul {
     list-style: none;
     text-align: center;
 }
-  
+
 .social-icons ul li {
     display: inline-block;
     width: 40px;
@@ -402,7 +410,7 @@ footer {
     text-align: center;
     overflow: hidden;
 }
-  
+
 .social-icons ul li a {
     display: inline-block;
     width: 40px;
@@ -412,17 +420,17 @@ footer {
     border: 1px solid rgb(255 255 255 / 0.15);
     border-radius: var(--app-border-radius);
 }
-    
-.fa-brands:hover  {
+
+.fa-brands:hover {
     color: var(--app-blue-hover);
     transition: background-color 0.25s ease-in-out;
 }
-  
+
 p.copyright {
     font-size: 14px;
-    color:  #adadad;
+    color: #adadad;
     opacity: 0.4;
-    font-weight: 400; 
+    font-weight: 400;
     text-align: center;
     margin-top: 15px;
 }
@@ -432,19 +440,19 @@ p.copyright {
 /* -------------------------------- */
 
 .scrollFade {
-	opacity: 1;
-	pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .scrollFade-hidden {
-	opacity: 0;
-	pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .scrollFade.is-visible {
-	opacity: 1;
+    opacity: 1;
     transition: opacity 0.4s ease-in-out;
-	pointer-events: all;
+    pointer-events: all;
 }
 
 /* -------------------------------- */
@@ -455,10 +463,11 @@ p.copyright {
 @media (max-width: 500px) {
 
     .hamburger-menu {
-        display: block; 
+        display: block;
     }
 
-    nav ul li, .contact {
+    nav ul li,
+    .contact {
         display: none;
     }
 
@@ -466,21 +475,21 @@ p.copyright {
         opacity: 0;
     }
 
-    #menu-toggle:checked + .menu-btn > span {
+    #menu-toggle:checked+.menu-btn>span {
         transform: rotate(45deg);
     }
 
-    #menu-toggle:checked + .menu-btn > span::before {
+    #menu-toggle:checked+.menu-btn>span::before {
         top: 0;
         transform: rotate(0deg);
     }
 
-    #menu-toggle:checked + .menu-btn > span::after {
+    #menu-toggle:checked+.menu-btn>span::after {
         top: 0;
         transform: rotate(90deg);
     }
 
-    #menu-toggle:checked ~ .menu-box {
+    #menu-toggle:checked~.menu-box {
         left: 54.5% !important;
     }
 
@@ -494,9 +503,9 @@ p.copyright {
         z-index: 1;
     }
 
-    .menu-btn > span,
-    .menu-btn > span::before,
-    .menu-btn > span::after {
+    .menu-btn>span,
+    .menu-btn>span::before,
+    .menu-btn>span::after {
         display: block;
         position: absolute;
         width: 100%;
@@ -505,12 +514,12 @@ p.copyright {
         transition-duration: .25s;
     }
 
-    .menu-btn > span::before {
+    .menu-btn>span::before {
         content: '';
         top: -8px;
     }
 
-    .menu-btn > span::after {
+    .menu-btn>span::after {
         content: '';
         top: 8px;
     }
@@ -524,12 +533,12 @@ p.copyright {
         font-weight: 600;
         line-height: 66px;
     }
-    
+
     .banner-text h2 span {
         font-weight: 600;
         font-size: 6rem;
     }
-      
+
     .banner-text p {
         font-size: 18px;
     }
@@ -548,7 +557,7 @@ p.copyright {
         font-size: 46px;
         font-weight: 600;
     }
-    
+
     section .section-heading p {
         font-size: 16px;
         width: 400px;
@@ -563,7 +572,7 @@ p.copyright {
         flex-wrap: wrap;
         gap: 5px;
     }
-    
+
     .pic {
         width: 180px;
         height: 260px;
@@ -574,7 +583,8 @@ p.copyright {
         margin-top: 0px;
     }
 
-    .three, .four {
+    .three,
+    .four {
         margin-top: 10px;
     }
 
@@ -584,7 +594,7 @@ p.copyright {
         padding: 10px;
         gap: 8px;
     }
-    
+
     .partner {
         border: none;
         width: 180px;
