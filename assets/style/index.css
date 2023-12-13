@@ -1,12 +1,598 @@
-@charset "utf-8";
+@import './reset.css';
 
-@import url(./reset.css);
-
-.container {
-  width: min(100% - 30px, 1080px);
-  margin-inline: auto;
+:root {
+    --app-dark-bg:#1a1d28;
+    --app-blue:#3c57ff;
+    --app-blue-hover:#233ff8;
+    --app-light-bg: #f0f4f6;
+    --app-border-radius: 6px;
+    --text-color: rgb(0, 0, 0, 0.8);;
 }
 
-/* body {
-  background: url(../img/game-bg.jpg) center center / cover no-repeat fixed;
+html {
+    scroll-behavior: smooth;
+    transition: all 0.25s ease-in-out;
+}
+
+body {
+    background-color: var(--app-light-bg);
+    height: 100vh;
+}
+
+.container {
+    width: min(100% - 30px, 1080px);
+    margin-inline: auto;
+}
+
+/* -------------------------------- */
+/* Header                           */
+/* -------------------------------- */
+
+header {
+    width: 100%;
+    height: 66px;
+    overflow: hidden;
+    background-color: transparent;
+    position: fixed;
+    z-index: 333;
+    border: none;
+    background-color: var(--app-light-bg);
+    padding: 10px 0px;
+}
+  
+.flexbox {
+    display: flex;
+}
+  
+.title {
+    width: 40%;
+    height: 36px;
+}
+  
+.title h1 a {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--app-blue);
+    line-height: 56px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}
+  
+nav {
+    width: 60%;
+    text-align: right;
+}
+  
+nav ul {
+    list-style: none;
+}
+  
+nav ul li {
+    display: inline;
+    line-height: 56px;
+    cursor: default;
+}
+  
+nav ul li a {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+}
+  
+nav ul li a:hover {
+    text-decoration: underline;
+}
+  
+  
+nav ul li + li {
+    margin-left: 20px;
+}
+
+.login {
+    width: 20%;
+    line-height: 56px;
+    text-align: right;
+    margin: 0 15px;
+}
+  
+.login a {
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: var(--app-blue);
+    border-radius: var(--app-border-radius);
+}
+  
+.login a:hover {
+    background-color: var(--app-blue-hover);
+    color: #fff;
+    background-size: 20px;
+    text-decoration: none;
+}
+
+.hamburger-menu {
+    display: none;
+    
+}
+
+
+/* -------------------------------- */
+/* Section-Banner                   */
+/* -------------------------------- */
+
+section {
+    width: 100%
+}
+  
+.banner {
+    background: var(--app-light-bg);
+    height: 90vh;
+    position: relative;
+}
+  
+.banner-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    color: rgb(0, 0, 0, 0.8);
+    margin: 10px auto;
+}
+  
+.banner-text h2 {
+    font-size: 5.5rem;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+}
+
+.banner-text h2 span {
+    color: var(--app-blue);
+    font-weight: 900;
+    font-size: 6.5rem;
+}
+  
+.banner-text p {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.banner-text a, .track {
+    width: 180px;
+    height: 50px;
+    border: none;
+    outline: none;
+    display: inline-block;
+    padding: 10px 25px;
+    font-size: 18px;
+    margin-top: 40px;
+    color: #fff;
+    background-color: var(--app-blue);
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: var(--app-border-radius);
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0px 5px 10px rgb(0 0 0 / 0.4);
+}
+
+.track {
+    width: 120px;
+}
+  
+.banner-text a:hover, .track:hover {
+    background-color: var(--app-blue-hover);
+    color: #fff;
+}
+
+/* -------------------------------- */
+/* Section-Heading                 */
+/* -------------------------------- */
+
+section#about {
+    margin-top: 40px;
+}
+
+section .section-heading {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+  
+  
+section .section-heading h3 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 900;
+    color: var(--app-blue);
+}
+
+section .section-heading p {
+    text-align: center;
+    font-size: 18px;
+    word-wrap: break-word;
+    font-weight: 400;
+    color: var(--text-color);
+    width: 480px;
+    margin-inline: auto;
+}
+  
+/* -------------------------------- */
+/* Section-pictures                 */
+/* -------------------------------- */
+
+section#gallery {
+    margin-top: 20px;
+}
+
+.pictures {
+    margin-top: 10px;
+    border: none;
+    padding: 5px;
+    height: 380px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.pic {
+    border: none;
+    width: 300px;
+    height: 300px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-inline: auto;
+    border-radius: 10px;
+}
+
+.two, .four {
+    margin-top: 40px;
+}
+
+
+/* -------------------------------- */
+/* Section-pictures                 */
+/* -------------------------------- */
+
+#slogan {
+    background: #fff url("../img/hero-image.jpg") center center / cover no-repeat;
+    height: 80vh;
+    position: relative;
+}
+
+#slogan .overlay {
+    min-height: 80vh;
+    background-color: rgb(20 24 28 / 0.6);
+}
+
+#slogan h3 {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    color: #fff;
+    margin: 0px auto;
+    font-size: 63px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+}
+
+/* -------------------------------- */
+/* Section-partners                 */
+/* -------------------------------- */
+
+.partners {
+    margin: 30px auto;
+    border: none;
+    width: 800px;
+    height: 380px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.partner {
+    border: none;
+    width: 200px;
+    height: 150px;
+    margin-inline: auto;
+}
+
+/* -------------------------------- */
+/* Section-Map                      */
+/* -------------------------------- */
+
+#tracking {
+    margin-top: 60px;
+}
+
+#map {
+    margin: 30px auto;
+    width: 100%;
+    height: 500px;
+    border-radius: var(--app-border-radius);
+}
+
+.overlay {
+    min-height: 500px;
+    border-radius: var(--app-border-radius);
+    background-color: rgba(115, 115, 116, 0.3);
+}
+
+/* To create a marker manually */
+/* .marker {
+    background-image: url(../img/pindrop.png);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+  
+.mapboxgl-popup-content {
+    text-align: center;
 } */
+
+/* -------------------------------- */
+/*           Footer                 */
+/* -------------------------------- */
+
+footer {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    border: none;
+    margin-top: 60px;
+    padding: 10px;
+    background-color: var(--app-dark-bg);
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    border: none;
+    border-radius: var(--app-border-radius);
+    width: 100px;
+    height: 100px;
+    margin-inline: auto;
+}
+
+.social-icons {
+    height: 100px;
+    margin-inline: auto;
+    padding: 10px;
+    border: none;
+}
+  
+.social-icons ul {
+    list-style: none;
+    text-align: center;
+}
+  
+.social-icons ul li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+  
+.social-icons ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    color: #fff;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: var(--app-border-radius);
+}
+    
+.fa-brands:hover  {
+    color: var(--app-blue-hover);
+    transition: background-color 0.25s ease-in-out;
+}
+  
+p.copyright {
+    font-size: 14px;
+    color:  #adadad;
+    opacity: 0.4;
+    font-weight: 400; 
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* -------------------------------- */
+/*          Scroll Fade Animation   */
+/* -------------------------------- */
+
+.scrollFade {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.scrollFade-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.scrollFade.is-visible {
+	opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+	pointer-events: all;
+}
+
+/* -------------------------------- */
+/*         Media Query              */
+/* -------------------------------- */
+
+/* 500px and down */
+@media (max-width: 500px) {
+
+    .hamburger-menu {
+        display: block; 
+    }
+
+    nav ul li, .contact {
+        display: none;
+    }
+
+    #menu-toggle {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked + .menu-btn > span {
+        transform: rotate(45deg);
+    }
+
+    #menu-toggle:checked + .menu-btn > span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu-toggle:checked + .menu-btn > span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    #menu-toggle:checked ~ .menu-box {
+        left: 54.5% !important;
+    }
+
+    .menu-btn {
+        position: absolute;
+        top: 38px;
+        left: 89%;
+        width: 24px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu-btn > span,
+    .menu-btn > span::before,
+    .menu-btn > span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        transition-duration: .25s;
+    }
+
+    .menu-btn > span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .menu-btn > span::after {
+        content: '';
+        top: 8px;
+    }
+
+    .banner {
+        height: 80vh;
+    }
+
+    .banner-text h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 66px;
+    }
+    
+    .banner-text h2 span {
+        font-weight: 600;
+        font-size: 6rem;
+    }
+      
+    .banner-text p {
+        font-size: 18px;
+    }
+
+    .banner-text a {
+        width: 160px;
+        font-size: 17px;
+        margin-top: 40px;
+    }
+
+    section#about {
+        margin-top: 60px;
+    }
+
+    section .section-heading h3 {
+        font-size: 46px;
+        font-weight: 600;
+    }
+    
+    section .section-heading p {
+        font-size: 16px;
+        width: 400px;
+    }
+
+    .pictures {
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .pic {
+        width: 180px;
+        height: 260px;
+        margin-inline: auto;
+    }
+
+    .two {
+        margin-top: 0px;
+    }
+
+    .three, .four {
+        margin-top: 10px;
+    }
+
+    .partners {
+        width: 400px;
+        height: 100%;
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .partner {
+        border: none;
+        width: 180px;
+        height: 100px;
+        margin-inline: auto;
+    }
+
+    #slogan h3 {
+        font-size: 60px;
+    }
+}
