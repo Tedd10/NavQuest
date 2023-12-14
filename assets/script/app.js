@@ -53,11 +53,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGhlbG1hLWRldiIsImEiOiJjbGJncnJqc2wwaXhjM29xd
 
 function getLocation(position) {
     const { latitude, longitude } = position.coords;
-    setUpMap([longitude, latitude]);
+    updateMapMarker([longitude, latitude]);
 }
 
 function errorHandler() {
-    setUpMap([-97.19318, 49.81453]);
+    updateMapMarker([-97.19318, 49.81453]);
 }
 
 const options = {
@@ -89,31 +89,41 @@ function setUpMap(center) {
         center: center,
         zoom: 15,
         attributionControl: false,
-        Marker: false,
+        marker: false,  // Corrected typo here
         pitch: 50,
     });
 
     map.addControl(new mapboxgl.NavigationControl());
-    for (const feature of geojson.features) {
-
-        const marker = new mapboxgl.Marker({
-            color: '#3898ff'
-        });
-
-        new mapboxgl.Marker(marker)
-            .setLngLat(feature.geometry.coordinates)
-            .setPopup(
-                new mapboxgl.Popup({ offset: 25 }) // add popups
-                    .setHTML(
-                        `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-                    )
-            )
-            .addTo(map);
-    }
+    updateMapMarker(center);
 
     map.dragPan.disable();
     map.keyboard.disable();
     map.doubleClickZoom.disable();
+}
+
+function updateMapMarker(coordinates) {
+    const [longitude, latitude] = coordinates;
+
+    // Remove any existing markers
+    const existingMarkers = document.querySelectorAll('.mapboxgl-marker');
+    existingMarkers.forEach(marker => marker.remove());
+
+    new mapboxgl.Marker({ color: '#3898ff' })
+        .setLngLat([longitude, latitude])
+        .setPopup(
+            new mapboxgl.Popup({ offset: 25 })
+                .setHTML(
+                    `<h3>Your Location</h3><p>Latitude: ${latitude}, Longitude: ${longitude}</p>`
+                )
+        )
+        .addTo(map);
+
+    // Zoom to the updated location
+    map.flyTo({
+        center: [longitude, latitude],
+        zoom: 15,
+        essential: true
+    });
 }
 
 // Call setUpMap at the beginning
